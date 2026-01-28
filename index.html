@@ -1,25 +1,96 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Salesforce Frontdoor Bridge 2026</title>
 </head>
 <body>
-  <!--Lightning Out 2.0 JS library -->
   <script
     type="text/javascript" 
     async=""
     src="https://myadp--dit2.sandbox.lightning.force.com/lightning/lightning.out.latest/index.iife.prod.js"
   ></script>
-  <!-- Lightning Out 2.0 web component: base configuration -->
   <lightning-out-application
     app-id="1UsRT0000000Dy90AE"
     frontdoor-url="https://myadp--dit2.sandbox.my.salesforce.com/secur/frontdoor.jsp?sid=00DRT000009YqOn!AQEAQPdkBpCvVbjFC.mMYxXSBltl_uT4qrkb_mRzgbJRtbBT878ollW4D_MWGEq3KUgZoIzdv9Ni4BxZgsnjOaub0uu1Y1Av"
     components="c-prm_lightning-out-sample-component"
   >
   </lightning-out-application>
-  <!-- Lightning Out 2.0 web component -->
   
+</body>
+</html> -->
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Salesforce Frontdoor Bridge 2026</title>
+</head>
+<body>
+  <script
+    type="text/javascript" 
+    async=""
+    src="https://myadp--dit2.sandbox.lightning.force.com/lightning/lightning.out.latest/index.iife.prod.js"
+  ></script>
+  <lightning-out-application
+    app-id="1UsRT0000000Dy90AE"
+    frontdoor-url="https://myadp--dit2.sandbox.my.salesforce.com/secur/frontdoor.jsp?sid=00DRT000009YqOn!AQEAQPdkBpCvVbjFC.mMYxXSBltl_uT4qrkb_mRzgbJRtbBT878ollW4D_MWGEq3KUgZoIzdv9Ni4BxZgsnjOaub0uu1Y1Av"
+    components="c-prm_lightning-out-sample-component"
+  >
+  </lightning-out-application>
+  
+</body>
+</html>
+ -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lightning Out 1.0</title>
+
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        #lwcContainer {
+            border: 1px solid #ccc;
+            padding: 16px;
+            margin-top: 20px;
+            min-height: 120px;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Lightning Out 1.0 – External Page</h2>
+<button onclick="loadLwc()">Load LWC</button>
+
+<div id="lwcContainer"></div>
+
+<!-- Lightning Out 1.0 runtime -->
+<script src="https://myadp--dit2.sandbox.lightning.force.com/lightning/lightning.out.js"></script>
+
+<script>
+    const FRONTDOOR_URL =
+        "https://myadp--dit2.sandbox.my.salesforce.com/secur/frontdoor.jsp?sid=00DRT000009YqOn!AQEAQPdkBpCvVbjFC.mMYxXSBltl_uT4qrkb_mRzgbJRtbBT878ollW4D_MWGEq3KUgZoIzdv9Ni4BxZgsnjOaub0uu1Y1Av";
+
+    function loadLwc() {
+        $Lightning.use(
+            "c:LightningOutApp",
+            function () {
+                $Lightning.createComponent(
+                    "c:prm_lightning-out-sample-component",
+                    {},                         // @api attributes
+                    "lwcContainer",
+                    function () {
+                        console.log("✅ LWC rendered via Lightning Out 1.0");
+                    }
+                );
+            },
+            FRONTDOOR_URL
+        );
+    }
+</script>
+
 </body>
 </html>
 
